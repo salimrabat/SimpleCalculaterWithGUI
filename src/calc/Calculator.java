@@ -17,49 +17,49 @@ public class Calculator {
         if (operators.contains("")) {
             operators.remove("");
         }
-        long result = 0;
+        double result = 0;
         String value;
         while (!operators.isEmpty()) {
             if (operators.contains("*")) {
                 int i = operators.indexOf("*");
-                result = Long.parseLong(operands.get(i)) * Long.parseLong(operands.get(i+1));
+                result = Double.parseDouble(operands.get(i)) * Double.parseDouble(operands.get(i+1));
                 operands.remove(i+1);
                 operands.remove(i);
                 operators.remove(i);
-                operands.add(i, Long.toString(result));
+                operands.add(i, Double.toString(result));
             }
             else if (operators.contains("/")) {
                 int i = operators.indexOf("/");
-                if (Long.parseLong(operands.get(i+1)) == 0) {
+                if (Double.parseDouble(operands.get(i+1)) == 0) {
                     operators.clear();
                     operands.clear();
                     return "ERROR!! DIVISION BY ZERO";
                 }
-                result = Long.parseLong(operands.get(i)) / Long.parseLong(operands.get(i+1));
+                result = Double.parseDouble(operands.get(i)) / Double.parseDouble(operands.get(i+1));
                 operands.remove(i+1);
                 operands.remove(i);
                 operators.remove(i);
-                operands.add(i, Long.toString(result));
+                operands.add(i, Double.toString(result));
             }
             else if (operators.contains("-")) {
                 int i = operators.indexOf("-");
-                result = Long.parseLong(operands.get(i)) - Long.parseLong(operands.get(i+1));
+                result = Double.parseDouble(operands.get(i)) - Double.parseDouble(operands.get(i+1));
                 operands.remove(i+1);
                 operands.remove(i);
                 operators.remove(i);
-                operands.add(i, Long.toString(result));
+                operands.add(i, Double.toString(result));
             }
             else if (operators.contains("+")) {
                 int i = operators.indexOf("+");
-                result = Long.parseLong(operands.get(i)) + Long.parseLong(operands.get(i+1));
+                result = Double.parseDouble(operands.get(i)) + Double.parseDouble(operands.get(i+1));
                 operands.remove(i+1);
                 operands.remove(i);
                 operators.remove(i);
-                operands.add(i, Long.toString(result));
+                operands.add(i, Double.toString(result));
             }
         }
 
-        value = Long.toString(result);
+        value = Double.toString(result);
         operands.clear();
         operators.clear();
         return value;
