@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-import java.util.ArrayList;
 
 /**
  * Created by srabb on 2017-06-28.
@@ -15,8 +14,6 @@ import java.util.ArrayList;
 public class Controller  {
 
     @FXML private TextArea etScreen;
-    private ArrayList<Integer> numbers = new ArrayList<>();
-    private ArrayList<String> operators = new ArrayList<>();
     private String value = "";
     private boolean start = true;
     private Calculator calculator = new Calculator();
@@ -45,10 +42,8 @@ public class Controller  {
     }
 
     @FXML
-    private void clearText(ActionEvent event) {
+    private void clearText() {
         etScreen.setText("");
-        numbers.clear();
-        operators.clear();
     }
 
 }
